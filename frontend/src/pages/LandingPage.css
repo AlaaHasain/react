@@ -1,0 +1,285 @@
+.landing-page {
+  min-height: 100vh;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  background-image: radial-gradient(
+      circle at top right,
+      rgba(14, 165, 233, 0.1),
+      /* Sky blue */ transparent 40%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(16, 185, 129, 0.1),
+      /* Emerald green */ transparent 40%
+    );
+  position: relative;
+  overflow: hidden;
+}
+
+.landing-content {
+  max-width: 800px;
+  position: relative;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.05); /* Semi-transparent overlay */
+  backdrop-filter: blur(8px); /* Frosted glass effect */
+  border-radius: 1.5rem;
+  padding: 3rem 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.landing-page h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  background: linear-gradient(
+    to right,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeIn 1s ease-out;
+}
+
+.landing-page p {
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  color: var(--color-text-muted);
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+  animation: fadeIn 1s ease-out 0.2s backwards;
+}
+
+.landing-buttons {
+  display: flex;
+  gap: 1.5rem; /* Increased spacing between buttons */
+  justify-content: center;
+  margin-top: 1.5rem; /* Increased margin */
+  animation: fadeIn 1s ease-out 0.4s backwards;
+}
+
+.landing-buttons .btn {
+  padding: 1rem 2.5rem; /* Larger padding */
+  border-radius: 9999px; /* Fully rounded */
+  font-weight: 600;
+  font-size: 1.1rem; /* Larger text */
+  transition: all 0.3s ease;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.landing-buttons .btn:first-child {
+  background: linear-gradient(
+    to right,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  color: white;
+  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.3); /* Subtle shadow */
+  border: none;
+}
+
+.landing-buttons .btn:first-child::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.8s;
+}
+
+.landing-buttons .btn:first-child:hover {
+  transform: translateY(-5px); /* More pronounced lift effect */
+  box-shadow: 0 8px 20px rgba(14, 165, 233, 0.4);
+}
+
+.landing-buttons .btn:first-child:hover::before {
+  left: 100%;
+}
+
+.landing-buttons .btn:last-child {
+  background-color: transparent;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.landing-buttons .btn:last-child::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: var(--color-primary);
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.landing-buttons .btn:last-child:hover::before {
+  width: 100%;
+}
+
+.landing-buttons .btn:last-child:hover {
+  border-color: var(--color-primary-dark);
+  color: var(--color-primary-dark);
+  transform: translateY(-3px);
+}
+
+/* Decorative elements */
+.landing-page::before,
+.landing-page::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px); /* Increased blur */
+}
+
+.landing-page::before {
+  width: 400px; /* Larger glow */
+  height: 400px;
+  background-color: rgba(14, 165, 233, 0.15); /* Sky blue */
+  top: -150px;
+  right: -100px;
+  animation: float 20s infinite alternate; /* Added animation */
+}
+
+.landing-page::after {
+  width: 350px;
+  height: 350px;
+  background-color: rgba(16, 185, 129, 0.15); /* Emerald green */
+  bottom: -150px;
+  left: -100px;
+  animation: float 25s infinite alternate-reverse; /* Added animation */
+}
+
+/* Animation for glow elements */
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(50px, -30px);
+  }
+  100% {
+    transform: translate(10px, 40px);
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px); /* Increased distance */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Added a geometric pattern to background for uniqueness */
+.geometric-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+      var(--color-border) 1.5px,
+      transparent 1.5px
+    ),
+    linear-gradient(90deg, var(--color-border) 1.5px, transparent 1.5px);
+  background-size: 40px 40px;
+  opacity: 0.07;
+  z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .landing-page {
+    padding: 1.5rem;
+  }
+
+  .landing-content {
+    padding: 2rem 1.5rem;
+    border-radius: 1.25rem;
+  }
+
+  .landing-buttons {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px; /* Increased from 300 */
+    gap: 1rem; /* Added gap for mobile */
+  }
+
+  .landing-buttons .btn {
+    width: 100%;
+    text-align: center;
+    padding: 0.85rem 1.5rem; /* Adjusted padding for mobile */
+  }
+}
+
+/* Additional feature - animated arrow to draw attention to scrolling */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounce 2s infinite;
+  z-index: 10;
+  color: var(--color-text);
+  opacity: 0.7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.scroll-indicator span {
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.scroll-indicator svg {
+  width: 24px;
+  height: 24px;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0) translateX(-50%);
+  }
+  40% {
+    transform: translateY(-10px) translateX(-50%);
+  }
+  60% {
+    transform: translateY(-5px) translateX(-50%);
+  }
+}
